@@ -26,3 +26,19 @@ spec:
     emptyDir:
       sizeLimit: 500Mi
 ```
+````
+apiVersion: v1
+kind: Pod
+metadata:
+  name: emptydir-pod
+spec:
+  containers:
+  - name: my-container
+    image: nginx
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: my-emptydir
+  volumes:
+  - name: my-emptydir
+    emptyDir: {}
+````
